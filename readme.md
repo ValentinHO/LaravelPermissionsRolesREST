@@ -1,3 +1,20 @@
+## Login y REST API Laravel
+
+Proyecto de ejemplo para login de usuarios implementando Spatie para control de permisos mediante roles.
+
+Implementación de rutas API REST mediante Passport.
+
+## Spatie
+
+Para más información sobre Spatie, visita <a href="https://github.com/spatie/laravel-permission">https://github.com/spatie/laravel-permission</a>
+
+##Passport
+
+Para más información sobre Passport, visita la documentación de Laravel <a href="https://laravel.com/docs/5.6/passport">Documentation</a>
+
+
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
