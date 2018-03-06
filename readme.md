@@ -1,4 +1,4 @@
-## Login y REST API Laravel
+## Login y REST API Laravel 5.6.7
 
 Proyecto de ejemplo para login de usuarios implementando Spatie para control de permisos mediante roles.
 
