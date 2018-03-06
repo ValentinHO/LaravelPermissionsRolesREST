@@ -8,7 +8,7 @@ Implementación de rutas API REST mediante Passport.
 
 Para más información sobre Spatie, visita <a href="https://github.com/spatie/laravel-permission">https://github.com/spatie/laravel-permission</a>
 
-##Passport
+## Passport
 
 Para más información sobre Passport, visita la documentación de Laravel <a href="https://laravel.com/docs/5.6/passport">Documentation</a>
 
