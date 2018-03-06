@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -77,5 +79,31 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('users.index');
+    }
+
+    function getToken(Request $request){
+        if ($request->isJson()) {
+            try {
+                $data = $request->json()->all();
+                $user = User::where('email',$data['email'])->first();
+
+                //Verificamos que exista el usuario y por lo tanto la contraseña sea la correcta
+                if($user && Hash::check($data['password'],$user->password)){
+
+                    return response()->json([
+                        'id'=>$user->id,
+                        'name'=>$user->name,
+                        'email'=>$user->email,
+                        'token'=>$user->createToken($user->name)->accessToken
+                    ],200);
+                }else{
+                    return response()->json(['error'=>'No content.'],406);
+                }
+            } catch (ModelNotFoundException $e) {
+                return response()->json(['error'=>'No content'],406);
+            }
+        }
+
+        return response()->json(['error'=>'Unauthorized'],401);
     }
 }

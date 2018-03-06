@@ -13,6 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::post('/login', 'UserController@getToken');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware('auth:api')->get('/posts', function(){
+	return App\Post::all();
+});
+
+Route::middleware('client')->get('/clients/posts', function(){
+	return App\Post::all();
+});
+
+Route::middleware('client')->get('/sites', function(){
+	return App\Site::all();
 });

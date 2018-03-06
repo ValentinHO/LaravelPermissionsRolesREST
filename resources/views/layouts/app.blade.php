@@ -49,6 +49,10 @@
                 @endguest
               </div></li>
               <li><a href="{{ route('home') }}">Inicio</a></li>
+              <li><a href="{{ url('/client') }}">Clientes</a></li>
+              @can('sites.index')
+                <li><a href="{{ route('sites.index') }}">Sitios</a></li>
+              @endcan
               @can('users.index')
                 <li><a href="{{ route('users.index') }}">Usuarios</a></li>
               @endcan

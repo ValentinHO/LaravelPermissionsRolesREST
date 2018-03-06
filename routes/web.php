@@ -22,7 +22,9 @@ Route::middleware(['auth'])->group(function()
 {
 		
 		Route::get('/home', 'HomeController@index')->name('home');
+		Route::get('/client', 'ClientController@index');
 
+		//USUARIOS
 		
 		Route::get('/usuarios', 'UserController@index')->name('users.index')
 			->middleware('permission:users.index');
@@ -46,6 +48,7 @@ Route::middleware(['auth'])->group(function()
 			->middleware('permission:users.delete');
 
 
+		//ROLES
 		Route::get('/roles', 'RoleController@index')->name('roles.index')
 			->middleware('permission:roles.index');
 
@@ -66,5 +69,29 @@ Route::middleware(['auth'])->group(function()
 
 		Route::delete('/roles/{role}', 'RoleController@delete')->name('roles.delete')
 			->middleware('permission:roles.delete');
+
+
+		//SITIOS
+
+		Route::get('/sites', 'SiteController@index')->name('sites.index')
+			->middleware('permission:sites.index');
+
+		Route::get('/sites/new', 'SiteController@new')->name('sites.new')
+			->middleware('permission:sites.new');
+
+		Route::get('/sites/{site}', 'SiteController@show')->name('sites.show')
+			->middleware('permission:sites.show');
+
+		Route::post('/sites', 'SiteController@create')->name('sites.create')
+			->middleware('permission:sites.new');
+
+		Route::get('/sites/{site}/edit', 'SiteController@edit')->name('sites.edit')
+			->middleware('permission:sites.edit');
+
+		Route::put('/sites/{site}', 'SiteController@update')->name('sites.update')
+			->middleware('permission:sites.edit');
+
+		Route::delete('/sites/{site}', 'SiteController@delete')->name('sites.delete')
+			->middleware('permission:sites.delete');
 
 });
